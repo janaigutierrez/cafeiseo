@@ -62,9 +62,8 @@ const About = () => {
                     <div className="relative">
                         <div className="bg-gradient-to-br from-gelato-200 to-gelato-300 rounded-2xl h-80 flex items-center justify-center">
                             <div className="text-center text-gelato-600">
-                                <div className="text-6xl mb-4">🏪</div>
+                                <div className="text-6xl mb-4"></div>
                                 <p className="font-medium">Foto de la cafeteria</p>
-                                <p className="text-sm opacity-75">Imatge pròximament</p>
                             </div>
                         </div>
                     </div>

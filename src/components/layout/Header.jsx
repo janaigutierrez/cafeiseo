@@ -33,8 +33,8 @@ const Header = () => {
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-                    ? 'bg-white/95 backdrop-blur-md shadow-lg'
-                    : 'bg-transparent'
+                ? 'bg-white/95 backdrop-blur-md shadow-lg'
+                : 'bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,8 +42,11 @@ const Header = () => {
                     {/* Logo */}
                     <div className="flex items-center space-x-3">
                         <div className="flex items-center space-x-1">
-                            <Coffee className={`h-8 w-8 ${isScrolled ? 'text-caffe' : 'text-white'} transition-colors`} />
-                            <IceCream className={`h-8 w-8 ${isScrolled ? 'text-gelato-400' : 'text-white'} transition-colors`} />
+                            <img
+                                src='logoiseo.webp'
+                                alt='Imatge del local'
+                                className='w-10 h-10 rounded-md shadow items-center'
+                            ></img>
                         </div>
                         <div>
                             <h1 className={`font-display text-2xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} transition-colors`}>
@@ -62,8 +65,8 @@ const Header = () => {
                                 key={item.name}
                                 onClick={() => scrollToSection(item.href)}
                                 className={`font-medium transition-all duration-200 hover:scale-105 transform ${isScrolled
-                                        ? 'text-gray-700 hover:text-gelato-500'
-                                        : 'text-white hover:text-gelato-200'
+                                    ? 'text-gray-700 hover:text-gelato-500'
+                                    : 'text-white hover:text-gelato-200'
                                     }`}
                             >
                                 {item.name}
