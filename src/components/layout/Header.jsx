@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Coffee, IceCream } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,8 +18,7 @@ const Header = () => {
         { name: 'Inici', href: '#hero' },
         { name: 'Coneix-nos', href: '#about' },
         { name: 'Els nostres productes', href: '#products' },
-        { name: 'On som', href: '#location' },
-        { name: 'Contacte', href: '#contact' }
+        { name: 'On som', href: '#location' }
     ]
 
     const scrollToSection = (href) => {

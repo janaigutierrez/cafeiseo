@@ -48,13 +48,7 @@ function App() {
         {/* Location Section */}
         <Location />
 
-        {/* Contact Section - Temporal */}
-        <section id="contact" className="py-20 bg-gelato-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-display text-4xl font-bold text-gray-800 mb-4">Contacte</h2>
-            <p className="text-lg text-gray-600">Secció Contact - Aquí anirem desenvolupant...</p>
-          </div>
-        </section>
+
       </main>
 
       <Footer />
