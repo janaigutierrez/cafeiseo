@@ -8,7 +8,7 @@ export const contactInfo = {
     email: "caffeiseo@yahoo.it", // Actualitza amb l'email real
     xarxesSocials: {
         instagram: "@caffeiseogelateria",
-        facebook: "Cafeteria Gelateria ISEO"
+        facebook: "CaffeIseoGelateria"
     }
 }
 

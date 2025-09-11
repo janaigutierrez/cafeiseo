@@ -18,7 +18,7 @@ const Footer = () => {
         <footer className="bg-gray-900 text-white">
             {/* Contingut principal del footer */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-20">
 
                     {/* Logo i descripció */}
                     <div className="lg:col-span-1">
@@ -37,7 +37,7 @@ const Footer = () => {
 
                     {/* Informació de contacte */}
                     <div>
-                        <h3 className="font-display text-lg font-semibold mb-4">Contacte</h3>
+                        <h3 className="font-display text-lg font-semibold mb-2">Contacte</h3>
                         <div className="space-y-3">
                             <div className="flex items-start space-x-3">
                                 <MapPin className="h-5 w-5 text-gelato-400 mt-0.5 flex-shrink-0" />
@@ -69,30 +69,6 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/* Horaris */}
-                    <div>
-                        <h3 className="font-display text-lg font-semibold mb-4">Horaris</h3>
-                        <div className="space-y-2">
-                            {diesSetmana.map((dia) => (
-                                <div key={dia.key} className="flex justify-between items-center">
-                                    <span className="text-gray-300">{dia.nom}</span>
-                                    <span className={`text-sm ${horarisActuals[dia.key] === 'Tancat'
-                                        ? 'text-red-400'
-                                        : 'text-gelato-400'
-                                        }`}>
-                                        {horarisActuals[dia.key]}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                        <p className="text-xs text-gray-400 mt-4">
-                            * Horaris d'hivern. Els horaris poden variar durant l'estiu.
-                        </p>
-                    </div>
-
-
-
                 </div>
             </div>
 

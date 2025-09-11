@@ -135,20 +135,17 @@ export const cafes = [
     {
         id: 1,
         nom: "Espresso Italiano",
-        descripcio: "Blend 100% àrabica amb notes de xocolata",
-        preu: "1.50€"
+        descripcio: "Varietat 100% àrabica de gran altura",
     },
     {
         id: 2,
         nom: "Cappuccino Artesà",
-        descripcio: "Espresso amb llet vaporitzada i escuma cremosa",
-        preu: "2.20€"
+        descripcio: "Espresso amb llet cremosa",
     },
     {
         id: 3,
         nom: "Cafè amb Llet",
-        descripcio: "Equilibri perfecte entre cafè i llet sencera",
-        preu: "1.80€"
+        descripcio: "Equilibri perfecte entre cafè i llet fresca de les granjes Armengol",
     }
 ]
 
@@ -156,28 +153,21 @@ export const altres = [
     {
         id: 1,
         categoria: "Creps",
-        nom: "Crep Nutella i Plàtan",
-        descripcio: "Crep casolana amb Nutella i plàtan fresc",
+        nom: "Crep Nutella i Nata",
+        descripcio: "Crep casolana amb Nutella i nata fresca",
         preu: "4.50€"
     },
     {
         id: 2,
         categoria: "Entrepans",
-        nom: "Entrepà de Pernil Dolç",
-        descripcio: "Pa artesà amb pernil dolç i tomàquet",
+        nom: "Entrepà de Llonganissa",
+        descripcio: "Pa de llavors amb llonganissa de ca l'Abel",
         preu: "3.80€"
     },
     {
         id: 3,
-        categoria: "Begudes",
-        nom: "Granissat de Llimó",
-        descripcio: "Beguda refrescant amb llimó natural",
-        preu: "2.50€"
-    },
-    {
-        id: 4,
         categoria: "Pastes",
-        nom: "Croissant Artesà",
+        nom: "Croissant",
         descripcio: "Croissant de mantega fet cada matí",
         preu: "1.90€"
     }
