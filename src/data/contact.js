@@ -4,8 +4,8 @@ export const contactInfo = {
     ciutat: "Caldes de Montbui",
     codiPostal: "08140",
     provincia: "Barcelona",
-    telefon: "+34 938 XXX XXX", // Actualitza amb el telèfon real
-    email: "caffeiseo@yahoo.it", // Actualitza amb l'email real
+    telefon: "+34 608 63 16 36",
+    email: "caffeiseo@yahoo.it",
     xarxesSocials: {
         instagram: "@caffeiseogelateria",
         facebook: "CaffeIseoGelateria"

@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Instagram, Facebook, Coffee, IceCream } from 'luci
 import { contactInfo, horaris } from '../../data/contact'
 
 const Footer = () => {
-    const horarisActuals = horaris.hivern // Canviar segons temporada
+    const horarisActuals = horaris.hivern // canvi segons temporada
 
     const diesSetmana = [
         { key: 'dilluns', nom: 'Dilluns' },

@@ -166,7 +166,7 @@ const Products = () => {
                 <div className="text-center">
                     <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto mb-8">
                         <h3 className="font-display text-2xl font-semibold text-gray-900 mb-4">
-                            I encara hi ha més! ✨
+                            I encara hi ha més!
                         </h3>
                         <p className="text-gray-600 mb-6 leading-relaxed">
                             Vine al local i podràs trobar encara més coses! Begudes fresques, entrepans diaris,
@@ -182,6 +182,7 @@ const Products = () => {
                             <span>Veure carta completa</span>
                             <ExternalLink className="h-4 w-4" />
                         </a>
+
                     </div>
                 </div>
             </div>

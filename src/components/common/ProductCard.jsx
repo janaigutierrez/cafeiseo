@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Star, Clock } from 'lucide-react'
-import { gelats } from '../../data/products'
+import { Star } from 'lucide-react'
 
 const ProductCard = ({ producte, tipus = 'gelat' }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
@@ -38,19 +37,11 @@ const ProductCard = ({ producte, tipus = 'gelat' }) => {
                     </div>
                 )}
 
-                {/* Badge si està destacat */}
+                {/* Badge destacat */}
                 {producte.destacat && (
                     <div className="absolute top-4 right-4 bg-gelato-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
                         <Star className="h-4 w-4 fill-current" />
                         <span>Destacat</span>
-                    </div>
-                )}
-
-                {/* Badge si no està disponible */}
-                {producte.disponible === false && (
-                    <div className="absolute top-4 left-4 bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
-                        <Clock className="h-4 w-4" />
-                        <span>Temporada</span>
                     </div>
                 )}
 
@@ -64,45 +55,10 @@ const ProductCard = ({ producte, tipus = 'gelat' }) => {
                     <h3 className="font-display text-xl font-semibold text-gray-900 group-hover:text-gelato-600 transition-colors">
                         {producte.nom}
                     </h3>
-                    {producte.preu && (
-                        <span className="text-lg font-bold text-gelato-600 bg-gelato-50 px-2 py-1 rounded-lg">
-                            {producte.preu}
-                        </span>
-                    )}
                 </div>
-
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     {producte.descripcio}
                 </p>
-
-                {/* Categories per altres productes */}
-                {producte.categoria && (
-                    <div className="flex items-center justify-between">
-                        <span className="inline-block bg-caffe/10 text-caffe px-3 py-1 rounded-full text-xs font-medium">
-                            {producte.categoria}
-                        </span>
-                    </div>
-                )}
-
-                {/* Estat de disponibilitat */}
-                {tipus === 'gelat' && (
-                    <div className="mt-4 pt-3 border-t border-gray-100">
-                        <div className="flex items-center justify-between">
-                            <span className={`text-sm font-medium ${producte.disponible
-                                ? 'text-green-600'
-                                : 'text-amber-600'
-                                }`}>
-                                {producte.disponible ? '✓ Disponible' : '⏰ Fora de temporada'}
-                            </span>
-
-                            {producte.disponible && (
-                                <button className="text-gelato-600 hover:text-gelato-700 text-sm font-medium hover:underline transition-colors">
-                                    Més info
-                                </button>
-                            )}
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     )
