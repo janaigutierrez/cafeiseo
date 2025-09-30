@@ -146,7 +146,45 @@ const Products = () => {
                             <ChevronRight className="h-6 w-6" />
                         </button>
                     </div>
+                    {/* Mobile - 1 sola card centrada */}
+                    <div className="md:hidden relative max-w-sm mx-auto px-4">
 
+                        {/* Botó anterior */}
+                        <button
+                            onClick={prevSlide}
+                            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200"
+                        >
+                            <ChevronLeft className="h-5 w-5" />
+                        </button>
+
+                        {/* Card actual només */}
+                        <div className="transition-all duration-500">
+                            <ProductCard
+                                producte={currentData[currentIndex]}
+                                tipus={activeTab === 'gelats' ? 'gelat' : 'general'}
+                            />
+                        </div>
+
+                        {/* Botó següent */}
+                        <button
+                            onClick={nextSlide}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200"
+                        >
+                            <ChevronRight className="h-5 w-5" />
+                        </button>
+                    </div>
+
+                    {/* Indicadors */}
+                    <div className="flex justify-center mt-8 space-x-2">
+                        {currentData.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentIndex ? 'bg-gelato-500 scale-125' : 'bg-gray-300'
+                                    }`}
+                            />
+                        ))}
+                    </div>
                     {/* Indicadors */}
                     <div className="flex justify-center mt-8 space-x-2">
                         {currentData.map((_, index) => (
