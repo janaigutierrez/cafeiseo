@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { gelats, cafes, altres } from '../../data/products'
 import ProductCard from '../common/ProductCard'
-import { IceCream, Coffee, Utensils, ChevronLeft, ChevronRight, ExternalLink, Award } from 'lucide-react'
+import { IceCream, Coffee, Utensils, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 
 const Products = () => {
     const [activeTab, setActiveTab] = useState('gelats')
@@ -33,7 +33,6 @@ const Products = () => {
 
     const currentData = tabs.find(tab => tab.id === activeTab)?.data || []
 
-    // Reset index quan canviem de tab
     const handleTabChange = (tabId) => {
         setActiveTab(tabId)
         setCurrentIndex(0)
@@ -47,13 +46,10 @@ const Products = () => {
         setCurrentIndex((prev) => (prev - 1 + currentData.length) % currentData.length)
     }
 
-    // Calcular les cards visibles
     const getVisibleCards = () => {
         if (currentData.length === 0) return []
-
         const prevIndex = (currentIndex - 1 + currentData.length) % currentData.length
         const nextIndex = (currentIndex + 1) % currentData.length
-
         return [
             { ...currentData[prevIndex], position: 'prev' },
             { ...currentData[currentIndex], position: 'current' },
@@ -67,7 +63,7 @@ const Products = () => {
         <section id="products" className="py-20 bg-gradient-to-b from-white to-gelato-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                {/* Header de la secció */}
+                {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Els nostres productes
@@ -78,7 +74,7 @@ const Products = () => {
                     </p>
                 </div>
 
-                {/* Tabs de navegació */}
+                {/* Tabs */}
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {tabs.map((tab) => {
                         const IconComponent = tab.icon
@@ -105,7 +101,9 @@ const Products = () => {
 
                 {/* Carrussel de productes */}
                 <div className="relative mb-16">
-                    <div className="flex items-center justify-center">
+
+                    {/* Desktop (3 targetes) */}
+                    <div className="hidden md:flex items-center justify-center">
 
                         {/* Botó anterior */}
                         <button
@@ -115,7 +113,7 @@ const Products = () => {
                             <ChevronLeft className="h-6 w-6" />
                         </button>
 
-                        {/* Cards del carrussel */}
+                        {/* Cards */}
                         <div className="flex items-center space-x-8 w-full max-w-6xl">
                             {visibleCards.map((item, index) => (
                                 <div
@@ -146,10 +144,10 @@ const Products = () => {
                             <ChevronRight className="h-6 w-6" />
                         </button>
                     </div>
-                    {/* Mobile - 1 sola card centrada */}
+
+                    {/* Mobile (1 targeta) */}
                     <div className="md:hidden relative max-w-sm mx-auto px-4">
 
-                        {/* Botó anterior */}
                         <button
                             onClick={prevSlide}
                             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200"
@@ -157,7 +155,6 @@ const Products = () => {
                             <ChevronLeft className="h-5 w-5" />
                         </button>
 
-                        {/* Card actual només */}
                         <div className="transition-all duration-500">
                             <ProductCard
                                 producte={currentData[currentIndex]}
@@ -165,7 +162,6 @@ const Products = () => {
                             />
                         </div>
 
-                        {/* Botó següent */}
                         <button
                             onClick={nextSlide}
                             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200"
@@ -185,22 +181,9 @@ const Products = () => {
                             />
                         ))}
                     </div>
-                    {/* Indicadors */}
-                    <div className="flex justify-center mt-8 space-x-2">
-                        {currentData.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setCurrentIndex(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentIndex ? 'bg-gelato-500 scale-125' : 'bg-gray-300'
-                                    }`}
-                            />
-                        ))}
-                    </div>
                 </div>
 
-
-
-                {/* CTA per veure la carta completa */}
+                {/* CTA */}
                 <div className="text-center">
                     <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto mb-8">
                         <h3 className="font-display text-2xl font-semibold text-gray-900 mb-4">
@@ -220,7 +203,6 @@ const Products = () => {
                             <span>Veure carta completa</span>
                             <ExternalLink className="h-4 w-4" />
                         </a>
-
                     </div>
                 </div>
             </div>
