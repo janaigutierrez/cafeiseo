@@ -17,9 +17,9 @@ export const gelats = [
     },
     {
         id: 3,
-        nom: "Gelat de Pistacho Sicilià",
-        descripcio: "Festucs de Sicília amb textura cremosa",
-        imatge: "/images/gelatos/festuc.JPEG",
+        nom: "Gelat de Festuc",
+        descripcio: "Cremós gelat de festuc amb trossets barrejats",
+        imatge: "/images/gelatos/festuc.jpg",
         disponible: true,
         destacat: false
     },
@@ -169,6 +169,6 @@ export const altres = [
         categoria: "Pastes",
         nom: "Croissant",
         descripcio: "Croissant de mantega fet cada matí",
-        preu: "1.90€"
+        preu: "1.60€"
     }
 ]

@@ -13,7 +13,7 @@ const Hero = () => {
             {/* Overlay semi-transparent */}
             <div className="absolute inset-0 bg-black/30"></div>
 
-            {/* Contingut per sobre (sense blur) */}
+            {/* Contingut */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center text-white">
                     <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 text-shadow-lg">

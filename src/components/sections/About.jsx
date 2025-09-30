@@ -60,13 +60,13 @@ const About = () => {
 
                     {/* Placeholder per imatge */}
                     <div className="relative">
-                        <div className="bg-gradient-to-br from-gelato-200 to-gelato-300 rounded-2xl h-80 flex items-center justify-center">
-                            <div className="text-center text-gelato-600">
-                                <div className="text-6xl mb-4"></div>
-                                <p className="font-medium">Foto de la cafeteria</p>
-                            </div>
-                        </div>
+                        <img
+                            src="/terrassaiseo.jpg"
+                            alt="Foto de la cafeteria"
+                            className="rounded-2xl h-80 w-full object-cover"
+                        />
                     </div>
+
                 </div>
 
                 {/* Valors i característiques */}
