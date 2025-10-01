@@ -1,5 +1,7 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Coffee, IceCream } from 'lucide-react'
 import { contactInfo, horaris } from '../../data/contact'
+import { Link } from 'react-router-dom'
+
 
 const Footer = () => {
     const horarisActuals = horaris.hivern // canvi segons temporada
@@ -101,15 +103,15 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className="flex space-x-6 text-sm">
-                            <button className="text-gray-400 hover:text-gelato-400 transition-colors">
+                            <Link to="/politica-privacitat" className="text-gray-400 hover:text-gelato-400 transition-colors">
                                 Política de privacitat
-                            </button>
-                            <button className="text-gray-400 hover:text-gelato-400 transition-colors">
+                            </Link>
+                            <Link to="/avis-legal" className="text-gray-400 hover:text-gelato-400 transition-colors">
                                 Avís legal
-                            </button>
-                            <button className="text-gray-400 hover:text-gelato-400 transition-colors">
+                            </Link>
+                            <Link to="/politica-cookies" className="text-gray-400 hover:text-gelato-400 transition-colors">
                                 Política de cookies
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
