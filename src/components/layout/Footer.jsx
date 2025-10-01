@@ -1,20 +1,9 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Coffee, IceCream } from 'lucide-react'
-import { contactInfo, horaris } from '../../data/contact'
+import { contactInfo } from '../../data/contact'
 import { Link } from 'react-router-dom'
 
 
 const Footer = () => {
-    const horarisActuals = horaris.hivern // canvi segons temporada
-
-    const diesSetmana = [
-        { key: 'dilluns', nom: 'Dilluns' },
-        { key: 'dimarts', nom: 'Dimarts' },
-        { key: 'dimecres', nom: 'Dimecres' },
-        { key: 'dijous', nom: 'Dijous' },
-        { key: 'divendres', nom: 'Divendres' },
-        { key: 'dissabte', nom: 'Dissabte' },
-        { key: 'diumenge', nom: 'Diumenge' }
-    ]
 
     return (
         <footer className="bg-gray-900 text-white">

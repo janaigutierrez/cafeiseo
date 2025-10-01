@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const Location = () => {
-    const horarisActuals = horaris.hivern
+    const horarisActuals = horaris.hivern //canviar segons temporada
 
     const [showMap, setShowMap] = useState(true)
 
