@@ -72,7 +72,7 @@ const About = () => {
                                 key={index}
                                 className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300"
                             >
-                                <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl group-hover:bg-iseo-100 transition-all duration-300">
+                                <div className="bg-iseo-50 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl group-hover:bg-iseo-100 transition-all duration-300">
                                     <IconComponent className="h-8 w-8 text-iseo-500 group-hover:text-iseo-600" />
                                 </div>
                                 <h4 className="font-display text-xl font-semibold text-iseo-900 mb-2">
@@ -86,7 +86,7 @@ const About = () => {
                     })}
                 </div>
 
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-iseo-200">
+                <div className="bg-iseo-50 rounded-2xl p-8 shadow-lg border border-iseo-200">
                     <div className="text-center">
                         <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4">
                             El nostre compromís

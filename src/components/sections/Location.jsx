@@ -6,16 +6,16 @@ import { useState } from 'react'
 const Location = () => {
     const horarisActuals = horaris.hivern //canviar segons temporada
 
-    const [showMap, setShowMap] = useState(true)
+    const [showMap] = useState(true)
 
     const diesSetmana = [
-        { key: 'dilluns', nom: 'Dilluns' },
-        { key: 'dimarts', nom: 'Dimarts' },
-        { key: 'dimecres', nom: 'Dimecres' },
-        { key: 'dijous', nom: 'Dijous' },
+        { key: 'dilluns',   nom: 'Dilluns' },
+        { key: 'dimarts',   nom: 'Dimarts' },
+        { key: 'dimecres',  nom: 'Dimecres' },
+        { key: 'dijous',    nom: 'Dijous' },
         { key: 'divendres', nom: 'Divendres' },
-        { key: 'dissabte', nom: 'Dissabte' },
-        { key: 'diumenge', nom: 'Diumenge' }
+        { key: 'dissabte',  nom: 'Dissabte' },
+        { key: 'diumenge',  nom: 'Diumenge' }
     ]
 
     const accesInfo = [
@@ -36,8 +36,16 @@ const Location = () => {
         }
     ]
 
+    const avui = new Date().getDay() // 0=diumenge, 1=dilluns...6=dissabte
+
+    const esAvui = (index) => {
+        // diesSetmana: índex 0=dilluns(1)...5=dissabte(6), 6=diumenge(0)
+        if (index === 6) return avui === 0
+        return avui === index + 1
+    }
+
     return (
-        <section id="location" className="py-20 bg-gradient-to-b from-white to-iseo-50">
+        <section id="location" className="py-20 bg-gradient-to-b from-iseo-50 to-iseo-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div className="text-center mb-16">
@@ -49,45 +57,40 @@ const Location = () => {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 mb-16">
+                {/* Mapa + Horaris — mateixa alçada */}
+                <div className="grid lg:grid-cols-2 gap-12 mb-16 items-stretch">
 
-                    <div>
-                        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-                            <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4 flex items-center">
-                                <MapPin className="h-6 w-6 text-iseo-500 mr-2" />
-                                La nostra ubicació
-                            </h3>
+                    {/* Mapa */}
+                    <div className="bg-iseo-50 rounded-2xl shadow-lg p-6 flex flex-col">
+                        <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4 flex items-center">
+                            <MapPin className="h-6 w-6 text-iseo-500 mr-2" />
+                            La nostra ubicació
+                        </h3>
 
-                            <div className="bg-iseo-50 rounded-xl overflow-hidden mb-4">
-                                <motion.div
-                                    initial={false}
-                                    animate={{
-                                        height: showMap ? 'auto' : 0,
-                                        opacity: showMap ? 1 : 0
-                                    }}
-                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                    className="overflow-hidden"
-                                >
-                                    <div className="pt-4 px-4 pb-0">
-                                        <div className="w-full h-64 rounded-lg overflow-hidden border border-iseo-200">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d857.9342979665917!2d2.1650333191168043!3d41.630031864688114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c1b7f1b51781%3A0x2c1486db55e468cf!2sCaffe%20Iseo!5e1!3m2!1sca!2ses!4v1757459499189!5m2!1sca!2ses"
-                                                width="100%"
-                                                height="100%"
-                                                style={{ border: 0 }}
-                                                allowFullScreen=""
-                                                loading="lazy"
-                                                referrerPolicy="no-referrer-when-downgrade"
-                                            />
-                                        </div>
-                                        <p className="text-xs text-iseo-400 text-center mt-2 pb-3">
-                                            Clica el mapa per obrir la direcció
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            </div>
+                        <div className="flex-1 flex flex-col">
+                            <motion.div
+                                initial={false}
+                                animate={{ height: showMap ? 'auto' : 0, opacity: showMap ? 1 : 0 }}
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                className="overflow-hidden flex-1"
+                            >
+                                <div className="w-full h-64 rounded-lg overflow-hidden border border-iseo-200 mb-4">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d857.9342979665917!2d2.1650333191168043!3d41.630031864688114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c1b7f1b51781%3A0x2c1486db55e468cf!2sCaffe%20Iseo!5e0!3m2!1sca!2ses!4v1757459499189!5m2!1sca!2ses"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    />
+                                </div>
+                                <p className="text-xs text-iseo-400 text-center mb-4">
+                                    Clica el mapa per obrir la direcció
+                                </p>
+                            </motion.div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-3 mt-auto">
                                 <div className="flex items-start space-x-3">
                                     <MapPin className="h-5 w-5 text-iseo-500 mt-0.5 flex-shrink-0" />
                                     <div>
@@ -96,7 +99,6 @@ const Location = () => {
                                         <p className="text-iseo-600">{contactInfo.provincia}</p>
                                     </div>
                                 </div>
-
                                 <div className="flex items-center space-x-3">
                                     <Phone className="h-5 w-5 text-iseo-500 flex-shrink-0" />
                                     <a
@@ -110,55 +112,56 @@ const Location = () => {
                         </div>
                     </div>
 
-                    <div className="space-y-6">
-                        <div className="bg-white rounded-2xl shadow-lg p-6">
-                            <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4 flex items-center">
-                                <Clock className="h-6 w-6 text-iseo-500 mr-2" />
-                                Horaris
-                            </h3>
+                    {/* Horaris */}
+                    <div className="bg-iseo-50 rounded-2xl shadow-lg p-6 flex flex-col">
+                        <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4 flex items-center">
+                            <Clock className="h-6 w-6 text-iseo-500 mr-2" />
+                            Horaris
+                        </h3>
 
-                            <div className="space-y-2">
-                                {diesSetmana.map((dia) => {
-                                    const esTancat = horarisActuals[dia.key] === 'Tancat'
-                                    const esAvui = new Date().getDay() === diesSetmana.indexOf(dia) + 1
+                        <div className="space-y-2 flex-1">
+                            {diesSetmana.map((dia, index) => {
+                                const esTancat = horarisActuals[dia.key] === 'Tancat'
+                                const avuiEsAquestDia = esAvui(index)
 
-                                    return (
-                                        <div
-                                            key={dia.key}
-                                            className={`flex justify-between items-center p-3 rounded-lg ${
-                                                esAvui ? 'bg-iseo-100 border border-iseo-300' : 'bg-gray-50'
-                                            }`}
-                                        >
-                                            <span className={`font-medium ${esAvui ? 'text-iseo-700' : 'text-gray-700'}`}>
-                                                {dia.nom}
-                                                {esAvui && (
-                                                    <span className="ml-2 text-xs bg-iseo-500 text-iseo-100 px-2 py-0.5 rounded-full">
-                                                        Avui
-                                                    </span>
-                                                )}
-                                            </span>
-                                            <span className={`font-medium ${
-                                                esTancat ? 'text-red-500' : esAvui ? 'text-iseo-500' : 'text-gray-600'
-                                            }`}>
-                                                {horarisActuals[dia.key]}
-                                            </span>
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                                return (
+                                    <div
+                                        key={dia.key}
+                                        className={`flex justify-between items-center p-3 rounded-lg ${
+                                            avuiEsAquestDia
+                                                ? 'bg-iseo-200 border border-iseo-300'
+                                                : 'bg-iseo-100/60'
+                                        }`}
+                                    >
+                                        <span className={`font-medium ${avuiEsAquestDia ? 'text-iseo-800' : 'text-iseo-700'}`}>
+                                            {dia.nom}
+                                            {avuiEsAquestDia && (
+                                                <span className="ml-2 text-xs bg-iseo-500 text-iseo-100 px-2 py-0.5 rounded-full">
+                                                    Avui
+                                                </span>
+                                            )}
+                                        </span>
+                                        <span className={`font-medium ${
+                                            esTancat ? 'text-red-500' : avuiEsAquestDia ? 'text-iseo-600' : 'text-iseo-500'
+                                        }`}>
+                                            {horarisActuals[dia.key]}
+                                        </span>
+                                    </div>
+                                )
+                            })}
+                        </div>
 
-                            <div className="mt-4 p-3 bg-iseo-50 rounded-lg border border-iseo-200">
-                                <p className="text-sm text-iseo-600">
-                                    <strong>Nota:</strong> Els horaris poden variar durant les festes locals i l'estiu.
-                                    Contacta'ns per confirmar l'obertura en dates especials.
-                                </p>
-                            </div>
+                        <div className="mt-4 p-3 bg-iseo-200 rounded-lg border border-iseo-300">
+                            <p className="text-sm text-iseo-700">
+                                <strong>Nota:</strong> Els horaris poden variar durant les festes locals i l'estiu.
+                                Contacta'ns per confirmar l'obertura en dates especials.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 {/* Com arribar */}
-                <div className="bg-white rounded-2xl shadow-lg p-8">
+                <div className="bg-iseo-50 rounded-2xl shadow-lg p-8">
                     <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-8 text-center">
                         Com arribar
                     </h3>
