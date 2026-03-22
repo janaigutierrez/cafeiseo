@@ -1,6 +1,6 @@
 const Hero = () => {
     return (
-        <section id="hero" className="relative h-[110vh] flex items-center pt-28 overflow-hidden">
+        <section id="hero" className="relative h-[110vh] flex items-center pt-20 overflow-hidden">
             {/* Imatge de fons amb blur */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
