@@ -6,29 +6,11 @@ const Footer = () => {
     return (
         <footer className="bg-iseo-900 text-iseo-100">
 
-            {/* CTA Treballar */}
-            <div className="border-b border-iseo-700">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
-                    <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
-                        T'agradaria treballar amb nosaltres?
-                    </h3>
-                    <p className="text-iseo-300 mb-6 max-w-xl mx-auto">
-                        Si ets una persona amb ganes, treballadora i t'agraden els gelats i el cafè de qualitat,
-                        voldríem conèixer-te!
-                    </p>
-                    <a
-                        href={`mailto:${contactInfo.email}?subject=Sol%C2%B7licitud%20de%20treball%20%E2%80%93%20Caf%C3%A8%20Iseo`}
-                        className="inline-flex items-center gap-2 bg-iseo-500 hover:bg-iseo-400 text-iseo-100 px-6 py-3 rounded-full font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
-                    >
-                        <Mail className="h-5 w-5" />
-                        Escriu-nos!
-                    </a>
-                </div>
-            </div>
+
 
             {/* Contingut principal */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid md:grid-cols-2 gap-20">
+                <div className="grid md:grid-cols-3 gap-20">
 
                     {/* Logo i descripció */}
                     <div>
@@ -41,6 +23,25 @@ const Footer = () => {
                             Els millors gelats artesans i cafès de qualitat al cor de Caldes de Montbui.
                             Vine a descobrir sabors únics elaborats amb passió.
                         </p>
+                    </div>
+                    {/* CTA Treballar */}
+                    <div className="flex items-center space-x-2 mb-4">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+                            <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
+                                T'agradaria treballar amb nosaltres?
+                            </h3>
+                            <p className="text-iseo-300 mb-6 max-w-xl mx-auto">
+                                Si ets una persona amb ganes, treballadora i t'agraden els gelats i el cafè de qualitat,
+                                voldríem conèixer-te!
+                            </p>
+                            <a
+                                href={`mailto:${contactInfo.email}?subject=Sol%C2%B7licitud%20de%20treball%20%E2%80%93%20Caf%C3%A8%20Iseo`}
+                                className="inline-flex items-center gap-2 bg-iseo-500 hover:bg-iseo-400 text-iseo-100 px-6 py-3 rounded-full font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
+                            >
+                                <Mail className="h-5 w-5" />
+                                Escriu-nos!
+                            </a>
+                        </div>
                     </div>
 
                     {/* Contacte */}
@@ -69,6 +70,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
