@@ -30,5 +30,14 @@ export const horaris = {
         divendres: "8:00 - 00:00",
         dissabte: "8:00 - 00:00",
         diumenge: "12:00 - 23:00"
+    },
+    primavera: {
+        dilluns: "8:00 - 20:30",
+        dimarts: "8:00 - 20:30",
+        dimecres: "8:00 - 20:30",
+        dijous: "8:00 - 20:30",
+        divendres: "8:00 - 20:30",
+        dissabte: "8:00 - 20:30",
+        diumenge: "12:00 - 20:30"
     }
 }

@@ -4,18 +4,18 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const Location = () => {
-    const horarisActuals = horaris.hivern //canviar segons temporada
+    const horarisActuals = horaris.primavera //canviar segons temporada
 
     const [showMap] = useState(true)
 
     const diesSetmana = [
-        { key: 'dilluns',   nom: 'Dilluns' },
-        { key: 'dimarts',   nom: 'Dimarts' },
-        { key: 'dimecres',  nom: 'Dimecres' },
-        { key: 'dijous',    nom: 'Dijous' },
+        { key: 'dilluns', nom: 'Dilluns' },
+        { key: 'dimarts', nom: 'Dimarts' },
+        { key: 'dimecres', nom: 'Dimecres' },
+        { key: 'dijous', nom: 'Dijous' },
         { key: 'divendres', nom: 'Divendres' },
-        { key: 'dissabte',  nom: 'Dissabte' },
-        { key: 'diumenge',  nom: 'Diumenge' }
+        { key: 'dissabte', nom: 'Dissabte' },
+        { key: 'diumenge', nom: 'Diumenge' }
     ]
 
     const accesInfo = [
@@ -127,11 +127,10 @@ const Location = () => {
                                 return (
                                     <div
                                         key={dia.key}
-                                        className={`flex justify-between items-center p-3 rounded-lg ${
-                                            avuiEsAquestDia
+                                        className={`flex justify-between items-center p-3 rounded-lg ${avuiEsAquestDia
                                                 ? 'bg-iseo-200 border border-iseo-300'
                                                 : 'bg-iseo-100/60'
-                                        }`}
+                                            }`}
                                     >
                                         <span className={`font-medium ${avuiEsAquestDia ? 'text-iseo-800' : 'text-iseo-700'}`}>
                                             {dia.nom}
@@ -141,9 +140,8 @@ const Location = () => {
                                                 </span>
                                             )}
                                         </span>
-                                        <span className={`font-medium ${
-                                            esTancat ? 'text-red-500' : avuiEsAquestDia ? 'text-iseo-600' : 'text-iseo-500'
-                                        }`}>
+                                        <span className={`font-medium ${esTancat ? 'text-red-500' : avuiEsAquestDia ? 'text-iseo-600' : 'text-iseo-500'
+                                            }`}>
                                             {horarisActuals[dia.key]}
                                         </span>
                                     </div>
