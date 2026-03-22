@@ -2,37 +2,32 @@ import { MapPin, Phone, Mail, Instagram, Facebook, Coffee, IceCream } from 'luci
 import { contactInfo } from '../../data/contact'
 import { Link } from 'react-router-dom'
 
-
 const Footer = () => {
-
     return (
-        <footer className="bg-gray-900 text-white">
-            {/* Contingut principal del footer */}
+        <footer className="bg-iseo-900 text-iseo-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-20">
 
                     {/* Logo i descripció */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center space-x-2 mb-4">
-                            <Coffee className="h-6 w-6 text-gelato-400" />
-                            <IceCream className="h-6 w-6 text-gelato-400" />
+                            <Coffee className="h-6 w-6 text-iseo-300" />
+                            <IceCream className="h-6 w-6 text-iseo-300" />
                             <span className="font-display text-xl font-bold">ISEO</span>
                         </div>
-                        <p className="text-gray-300 leading-relaxed mb-6">
+                        <p className="text-iseo-300 leading-relaxed mb-6">
                             Els millors gelats artesans i cafès de qualitat al cor de Caldes de Montbui.
                             Vine a descobrir sabors únics elaborats amb passió.
                         </p>
-
-
                     </div>
 
                     {/* Informació de contacte */}
                     <div>
-                        <h3 className="font-display text-lg font-semibold mb-2">Contacte</h3>
+                        <h3 className="font-display text-lg font-semibold mb-4">Contacte</h3>
                         <div className="space-y-3">
                             <div className="flex items-start space-x-3">
-                                <MapPin className="h-5 w-5 text-gelato-400 mt-0.5 flex-shrink-0" />
-                                <div className="text-gray-300">
+                                <MapPin className="h-5 w-5 text-iseo-400 mt-0.5 flex-shrink-0" />
+                                <div className="text-iseo-300">
                                     <p>{contactInfo.direccio}</p>
                                     <p>{contactInfo.codiPostal} {contactInfo.ciutat}</p>
                                     <p>{contactInfo.provincia}</p>
@@ -40,20 +35,20 @@ const Footer = () => {
                             </div>
 
                             <div className="flex items-center space-x-3">
-                                <Phone className="h-5 w-5 text-gelato-400 flex-shrink-0" />
+                                <Phone className="h-5 w-5 text-iseo-400 flex-shrink-0" />
                                 <a
                                     href={`tel:${contactInfo.telefon}`}
-                                    className="text-gray-300 hover:text-gelato-400 transition-colors"
+                                    className="text-iseo-300 hover:text-iseo-100 transition-colors"
                                 >
                                     {contactInfo.telefon}
                                 </a>
                             </div>
 
                             <div className="flex items-center space-x-3">
-                                <Mail className="h-5 w-5 text-gelato-400 flex-shrink-0" />
+                                <Mail className="h-5 w-5 text-iseo-400 flex-shrink-0" />
                                 <a
                                     href={`mailto:${contactInfo.email}`}
-                                    className="text-gray-300 hover:text-gelato-400 transition-colors"
+                                    className="text-iseo-300 hover:text-iseo-100 transition-colors"
                                 >
                                     {contactInfo.email}
                                 </a>
@@ -63,20 +58,21 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Copyright i informació legal */}
-            <div className="border-t border-gray-800 py-6">
+            {/* Copyright i legal */}
+            <div className="border-t border-iseo-800 py-6">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <div className="text-gray-400 text-sm">
+                        <div className="text-iseo-500 text-sm">
                             © {new Date().getFullYear()} {contactInfo.nom}. Tots els drets reservats.
                         </div>
+
                         {/* Xarxes socials */}
                         <div className="flex space-x-4">
                             <a
                                 href={`https://instagram.com/${contactInfo.xarxesSocials.instagram.replace('@', '')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-gray-800 p-2 rounded-full hover:bg-gelato-500 transition-colors"
+                                className="bg-iseo-800 p-2 rounded-full hover:bg-iseo-500 transition-colors"
                                 aria-label="Instagram"
                             >
                                 <Instagram className="h-5 w-5" />
@@ -85,20 +81,21 @@ const Footer = () => {
                                 href={`https://facebook.com/${contactInfo.xarxesSocials.facebook}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-gray-800 p-2 rounded-full hover:bg-gelato-500 transition-colors"
+                                className="bg-iseo-800 p-2 rounded-full hover:bg-iseo-500 transition-colors"
                                 aria-label="Facebook"
                             >
                                 <Facebook className="h-5 w-5" />
                             </a>
                         </div>
+
                         <div className="flex space-x-6 text-sm">
-                            <Link to="/politica-privacitat" className="text-gray-400 hover:text-gelato-400 transition-colors">
+                            <Link to="/politica-privacitat" className="text-iseo-500 hover:text-iseo-300 transition-colors">
                                 Política de privacitat
                             </Link>
-                            <Link to="/avis-legal" className="text-gray-400 hover:text-gelato-400 transition-colors">
+                            <Link to="/avis-legal" className="text-iseo-500 hover:text-iseo-300 transition-colors">
                                 Avís legal
                             </Link>
-                            <Link to="/politica-cookies" className="text-gray-400 hover:text-gelato-400 transition-colors">
+                            <Link to="/politica-cookies" className="text-iseo-500 hover:text-iseo-300 transition-colors">
                                 Política de cookies
                             </Link>
                         </div>
