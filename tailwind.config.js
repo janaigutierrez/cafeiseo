@@ -7,19 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'cream': '#F5F2E8',
-        'caffe': '#8B4513',
-        'gelato': {
-          50: '#FFF8F1',
-          100: '#FEECDC',
-          200: '#FCD9BD',
-          300: '#FDBA8C',
-          400: '#FF8A4C',
-          500: '#FF5A1F',
-          600: '#D03801',
-          700: '#B91C1C',
-          800: '#92400E',
-          900: '#78350F',
+        'iseo': {
+          50:  '#fffef2',
+          100: '#fefcd4',  // crema - fons clars
+          200: '#fdf5a0',
+          300: '#c49a55',
+          400: '#8c5a1a',
+          500: '#663f08',  // marró - accent principal
+          600: '#4d2f06',
+          700: '#3a2304',
+          800: '#2a1803',
+          900: '#1f1202',  // fosc - text i fons foscos
         }
       },
       fontFamily: {
