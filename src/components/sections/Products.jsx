@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import { IceCream, Coffee, GlassWater, Utensils } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { gelats, cafesXocolataInfusions, begudes, perMenjar } from '../../data/products'
-
-const tabs = [
-    { id: 'gelats',  nom: 'Gelats',                      icon: IceCream,   data: gelats },
-    { id: 'cafes',   nom: 'Cafès, Xocolata i Infusions', icon: Coffee,     data: cafesXocolataInfusions },
-    { id: 'begudes', nom: 'Begudes',                      icon: GlassWater, data: begudes },
-    { id: 'menjar',  nom: 'Per Menjar',                   icon: Utensils,   data: perMenjar },
-]
 
 function agruparPerSubcategoria(items) {
     const grups = []
@@ -91,8 +86,16 @@ const GrupSubcategoria = ({ grup }) => (
 
 const Products = () => {
     const [activeTab, setActiveTab] = useState('gelats')
+    const { t } = useTranslation()
 
-    const tabActual = tabs.find(t => t.id === activeTab)
+    const tabs = [
+        { id: 'gelats',  nomKey: 'tabGelats',    icon: IceCream,   data: gelats },
+        { id: 'cafes',   nomKey: 'tabCafes',      icon: Coffee,     data: cafesXocolataInfusions },
+        { id: 'begudes', nomKey: 'tabBegudes',    icon: GlassWater, data: begudes },
+        { id: 'menjar',  nomKey: 'tabPerMenjar',  icon: Utensils,   data: perMenjar },
+    ]
+
+    const tabActual = tabs.find(tab => tab.id === activeTab)
     const grups = agruparPerSubcategoria(tabActual?.data || [])
     const [columnaEsquerra, columnaDreta] = distribuirColumnes(grups)
 
@@ -101,17 +104,29 @@ const Products = () => {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Capçalera */}
-                <div className="text-center mb-12">
+                <motion.div
+                    className="text-center mb-12"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55, ease: 'easeOut' }}
+                >
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-iseo-900 mb-4">
-                        La nostra carta
+                        {t('products.sectionTitle')}
                     </h2>
                     <p className="text-iseo-500 text-lg max-w-2xl mx-auto">
-                        Productes elaborats cada dia amb ingredients frescos i naturals
+                        {t('products.sectionSubtitle')}
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Tabs */}
-                <div className="flex flex-wrap justify-center gap-2 mb-10">
+                <motion.div
+                    className="flex flex-wrap justify-center gap-2 mb-10"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+                >
                     {tabs.map(tab => {
                         const Icon = tab.icon
                         const actiu = activeTab === tab.id
@@ -126,33 +141,48 @@ const Products = () => {
                                 }`}
                             >
                                 <Icon className="h-4 w-4 flex-shrink-0" />
-                                <span>{tab.nom}</span>
+                                <span>{t(`products.${tab.nomKey}`)}</span>
                             </button>
                         )
                     })}
-                </div>
+                </motion.div>
 
                 {/* Cos de la carta */}
-                <div className="bg-iseo-100 rounded-2xl shadow-md p-6 md:p-10">
+                <motion.div
+                    className="bg-iseo-100 rounded-2xl shadow-md p-6 md:p-10 overflow-hidden"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+                >
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.22, ease: 'easeOut' }}
+                        >
+                            <h3 className="font-display text-2xl font-bold text-iseo-900 mb-8 text-center">
+                                {tabActual && t(`products.${tabActual.nomKey}`)}
+                            </h3>
 
-                    <h3 className="font-display text-2xl font-bold text-iseo-900 mb-8 text-center">
-                        {tabActual?.nom}
-                    </h3>
-
-                    {/* Dues columnes equilibrades */}
-                    <div className="grid md:grid-cols-2 gap-x-12">
-                        <div>
-                            {columnaEsquerra.map(grup => (
-                                <GrupSubcategoria key={grup.nom} grup={grup} />
-                            ))}
-                        </div>
-                        <div>
-                            {columnaDreta.map(grup => (
-                                <GrupSubcategoria key={grup.nom} grup={grup} />
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                            {/* Dues columnes equilibrades */}
+                            <div className="grid md:grid-cols-2 gap-x-12">
+                                <div>
+                                    {columnaEsquerra.map(grup => (
+                                        <GrupSubcategoria key={grup.nom} grup={grup} />
+                                    ))}
+                                </div>
+                                <div>
+                                    {columnaDreta.map(grup => (
+                                        <GrupSubcategoria key={grup.nom} grup={grup} />
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </motion.div>
 
             </div>
         </section>

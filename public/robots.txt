@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://caffeiseo.netlify.app/sitemap.xml

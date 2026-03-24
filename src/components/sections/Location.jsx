@@ -1,39 +1,39 @@
 import { MapPin, Clock, Phone, Navigation, Car, Bus } from 'lucide-react'
 import { contactInfo, horaris } from '../../data/contact'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+
+function getTemporada() {
+    const avui = new Date()
+    const md = (avui.getMonth() + 1) * 100 + avui.getDate() // ex: 315 = 15 de març
+    if (md >= 315 && md < 624) return 'primavera'
+    if (md >= 624 && md < 911) return 'estiu'
+    return 'hivern'
+}
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } }
+}
 
 const Location = () => {
-    const horarisActuals = horaris.primavera //canviar segons temporada
-
-    const [showMap] = useState(true)
+    const { t } = useTranslation()
+    const horarisActuals = horaris[getTemporada()]
 
     const diesSetmana = [
-        { key: 'dilluns', nom: 'Dilluns' },
-        { key: 'dimarts', nom: 'Dimarts' },
-        { key: 'dimecres', nom: 'Dimecres' },
-        { key: 'dijous', nom: 'Dijous' },
-        { key: 'divendres', nom: 'Divendres' },
-        { key: 'dissabte', nom: 'Dissabte' },
-        { key: 'diumenge', nom: 'Diumenge' }
+        { key: 'dilluns' },
+        { key: 'dimarts' },
+        { key: 'dimecres' },
+        { key: 'dijous' },
+        { key: 'divendres' },
+        { key: 'dissabte' },
+        { key: 'diumenge' },
     ]
 
     const accesInfo = [
-        {
-            icon: Car,
-            titol: "En cotxe",
-            descripcio: "Aparcament gratuït al centre del poble. Fàcil accés des de la C-59."
-        },
-        {
-            icon: Bus,
-            titol: "Transport públic",
-            descripcio: "Línies regulars d'autobusos des de Barcelona i Vic. Parada a 2 minuts caminant."
-        },
-        {
-            icon: Navigation,
-            titol: "A peu",
-            descripcio: "Ubicats a l'avinguda principal de Caldes de Montbui, prop de tots els serveis."
-        }
+        { icon: Car,        titolKey: 'cotxeTitle', descKey: 'cotxeDesc' },
+        { icon: Bus,        titolKey: 'busTitle',   descKey: 'busDesc'   },
+        { icon: Navigation, titolKey: 'peuTitle',   descKey: 'peuDesc'   },
     ]
 
     const avui = new Date().getDay() // 0=diumenge, 1=dilluns...6=dissabte
@@ -48,47 +48,52 @@ const Location = () => {
         <section id="location" className="py-20 bg-gradient-to-b from-iseo-50 to-iseo-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div className="text-center mb-16">
+                <motion.div
+                    className="text-center mb-16"
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-iseo-900 mb-6">
-                        On som?
+                        {t('location.sectionTitle')}
                     </h2>
                     <p className="text-xl text-iseo-500 max-w-3xl mx-auto leading-relaxed">
-                        Vine a descobrir-nos al cor de Caldes de Montbui
+                        {t('location.sectionSubtitle')}
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Mapa + Horaris — mateixa alçada */}
                 <div className="grid lg:grid-cols-2 gap-12 mb-16 items-stretch">
 
                     {/* Mapa */}
-                    <div className="bg-iseo-50 rounded-2xl shadow-lg p-6 flex flex-col">
+                    <motion.div
+                        className="bg-iseo-50 rounded-2xl shadow-lg p-6 flex flex-col"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4 flex items-center">
                             <MapPin className="h-6 w-6 text-iseo-500 mr-2" />
-                            La nostra ubicació
+                            {t('location.ubicacioTitle')}
                         </h3>
 
                         <div className="flex-1 flex flex-col">
-                            <motion.div
-                                initial={false}
-                                animate={{ height: showMap ? 'auto' : 0, opacity: showMap ? 1 : 0 }}
-                                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                className="overflow-hidden flex-1"
-                            >
-                                <div className="w-full h-64 rounded-lg overflow-hidden border border-iseo-200 mb-4">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d857.9342979665917!2d2.1650333191168043!3d41.630031864688114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c1b7f1b51781%3A0x2c1486db55e468cf!2sCaffe%20Iseo!5e0!3m2!1sca!2ses!4v1757459499189!5m2!1sca!2ses"
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen=""
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    />
-                                </div>
-                                <p className="text-xs text-iseo-400 text-center mb-4">
-                                    Clica el mapa per obrir la direcció
-                                </p>
-                            </motion.div>
+                            <div className="w-full h-64 rounded-lg overflow-hidden border border-iseo-200 mb-4">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d857.9342979665917!2d2.1650333191168043!3d41.630031864688114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c1b7f1b51781%3A0x2c1486db55e468cf!2sCaffe%20Iseo!5e0!3m2!1sca!2ses!4v1757459499189!5m2!1sca!2ses"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                            <p className="text-xs text-iseo-400 text-center mb-4">
+                                {t('location.mapInstruction')}
+                            </p>
 
                             <div className="space-y-3 mt-auto">
                                 <div className="flex items-start space-x-3">
@@ -110,13 +115,20 @@ const Location = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Horaris */}
-                    <div className="bg-iseo-50 rounded-2xl shadow-lg p-6 flex flex-col">
+                    <motion.div
+                        className="bg-iseo-50 rounded-2xl shadow-lg p-6 flex flex-col"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.15 }}
+                    >
                         <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-4 flex items-center">
                             <Clock className="h-6 w-6 text-iseo-500 mr-2" />
-                            Horaris
+                            {t('location.horarisTitle')}
                         </h3>
 
                         <div className="space-y-2 flex-1">
@@ -128,15 +140,15 @@ const Location = () => {
                                     <div
                                         key={dia.key}
                                         className={`flex justify-between items-center p-3 rounded-lg ${avuiEsAquestDia
-                                                ? 'bg-iseo-200 border border-iseo-300'
-                                                : 'bg-iseo-100/60'
+                                            ? 'bg-iseo-200 border border-iseo-300'
+                                            : 'bg-iseo-100/60'
                                             }`}
                                     >
                                         <span className={`font-medium ${avuiEsAquestDia ? 'text-iseo-800' : 'text-iseo-700'}`}>
-                                            {dia.nom}
+                                            {t(`location.days.${dia.key}`)}
                                             {avuiEsAquestDia && (
                                                 <span className="ml-2 text-xs bg-iseo-500 text-iseo-100 px-2 py-0.5 rounded-full">
-                                                    Avui
+                                                    {t('location.avui')}
                                                 </span>
                                             )}
                                         </span>
@@ -151,38 +163,51 @@ const Location = () => {
 
                         <div className="mt-4 p-3 bg-iseo-200 rounded-lg border border-iseo-300">
                             <p className="text-sm text-iseo-700">
-                                <strong>Nota:</strong> Els horaris poden variar durant les festes locals i l'estiu.
-                                Contacta'ns per confirmar l'obertura en dates especials.
+                                <strong>{t('location.nota')}</strong> {t('location.notaText')}
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Com arribar */}
-                <div className="bg-iseo-50 rounded-2xl shadow-lg p-8">
+                <motion.div
+                    className="bg-iseo-50 rounded-2xl shadow-lg p-8"
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
                     <h3 className="font-display text-2xl font-semibold text-iseo-900 mb-8 text-center">
-                        Com arribar
+                        {t('location.comArrTitle')}
                     </h3>
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {accesInfo.map((acces, index) => {
                             const IconComponent = acces.icon
                             return (
-                                <div key={index} className="text-center">
+                                <motion.div
+                                    key={index}
+                                    className="text-center"
+                                    variants={fadeUp}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.12 }}
+                                >
                                     <div className="bg-iseo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                                         <IconComponent className="h-8 w-8 text-iseo-500" />
                                     </div>
                                     <h4 className="font-display text-xl font-semibold text-iseo-900 mb-2">
-                                        {acces.titol}
+                                        {t(`location.${acces.titolKey}`)}
                                     </h4>
                                     <p className="text-iseo-600 leading-relaxed">
-                                        {acces.descripcio}
+                                        {t(`location.${acces.descKey}`)}
                                     </p>
-                                </div>
+                                </motion.div>
                             )
                         })}
                     </div>
-                </div>
+                </motion.div>
 
             </div>
         </section>

@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import './index.css'
 
 // Layout components
@@ -10,6 +9,7 @@ import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Products from './components/sections/Products'
+import Gelats from './components/sections/Gelats'
 import Location from './components/sections/Location'
 
 // Pages
@@ -25,6 +25,7 @@ const HomePage = () => {
       <main>
         <About />
         <Products />
+        <Gelats />
         <Location />
       </main>
     </>
@@ -32,14 +33,8 @@ const HomePage = () => {
 }
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
-
   return (
-    <div className={`min-h-screen transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="min-h-screen">
       <Routes>
         {/* Pàgina principal amb Header i Footer */}
         <Route path="/" element={

@@ -114,9 +114,9 @@ export const cafesXocolataInfusions = [
 // ─────────────────────────────────────────────────────────────
 export const begudes = [
     // Aigues i Refrescos
-    { id: 1, subcategoria: 'Aigues i Refrescos', nom: 'Agua Petita 33cl', descripcio: '', preu: '1,30€' },
-    { id: 2, subcategoria: 'Aigues i Refrescos', nom: 'Agua amb Gas', descripcio: '', preu: '2,50€' },
-    { id: 3, subcategoria: 'Aigues i Refrescos', nom: 'Agua amb Gas i Granissat', descripcio: '', preu: '4,00€' },
+    { id: 1, subcategoria: 'Aigues i Refrescos', nom: 'Aigua Petita 33cl', descripcio: '', preu: '1,30€' },
+    { id: 2, subcategoria: 'Aigues i Refrescos', nom: 'Aigua amb Gas', descripcio: '', preu: '2,50€' },
+    { id: 3, subcategoria: 'Aigues i Refrescos', nom: 'Aigua amb Gas i Granissat', descripcio: '', preu: '4,00€' },
     { id: 4, subcategoria: 'Aigues i Refrescos', nom: 'Tònica', descripcio: '', preu: '2,50€' },
     { id: 5, subcategoria: 'Aigues i Refrescos', nom: 'Suc Pago', descripcio: 'Pinya o préssec', preu: '2,50€' },
     { id: 6, subcategoria: 'Aigues i Refrescos', nom: 'Suc de Taronja Natural', descripcio: 'Espremut al moment', preu: '3,30€' },

@@ -1,8 +1,10 @@
 import { ArrowLeft, Shield } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const PoliticaPrivacitat = () => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     return (
         <div className="min-h-screen bg-gray-50 py-12">
@@ -13,113 +15,87 @@ const PoliticaPrivacitat = () => {
                     className="flex items-center space-x-2 text-gelato-600 hover:text-gelato-700 mb-8 transition-colors"
                 >
                     <ArrowLeft className="h-5 w-5" />
-                    <span>Tornar a l'inici</span>
+                    <span>{t('legal.backBtn')}</span>
                 </button>
 
                 <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                     <div className="flex items-center space-x-3 mb-8">
                         <Shield className="h-10 w-10 text-gelato-500" />
-                        <h1 className="font-display text-4xl font-bold text-gray-900">Política de Privacitat</h1>
+                        <h1 className="font-display text-4xl font-bold text-gray-900">{t('privacitat.title')}</h1>
                     </div>
 
                     <div className="prose prose-lg max-w-none text-justify space-y-6 text-gray-600">
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">1. Responsable del tractament</h2>
-                            <p>
-                                El responsable del tractament de les dades personals recollides a través del Web és
-                                Cafeteria Gelateria Iseo, amb domicili a Avinguda Pi i Margall 82, Caldes de Montbui, Barcelona.
-                            </p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s1Title')}</h2>
+                            <p>{t('privacitat.s1p')}</p>
                             <ul className="list-disc pl-6 space-y-2">
-                                <li><strong>Email de contacte:</strong> caffeiseo@yahoo.it</li>
-                                <li><strong>Telèfon:</strong> +34 608 63 16 36</li>
+                                <li><strong>{t('privacitat.s1liEmail')}</strong> caffeiseo@yahoo.it</li>
+                                <li><strong>{t('privacitat.s1liTelefon')}</strong> +34 608 63 16 36</li>
                             </ul>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">2. Finalitat del tractament</h2>
-                            <p>Les dades personals que ens facilitis seran tractades amb les següents finalitats:</p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s2Title')}</h2>
+                            <p>{t('privacitat.s2p')}</p>
                             <ul className="list-disc pl-6 space-y-2">
-                                <li>Gestió de consultes i sol·licituds d'informació</li>
-                                <li>Enviament de comunicacions comercials (només amb el teu consentiment previ)</li>
-                                <li>Gestió de la relació comercial i pressupostària</li>
-                                <li>Compliment d'obligacions legals</li>
+                                <li>{t('privacitat.s2li1')}</li>
+                                <li>{t('privacitat.s2li2')}</li>
+                                <li>{t('privacitat.s2li3')}</li>
+                                <li>{t('privacitat.s2li4')}</li>
                             </ul>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">3. Legitimació</h2>
-                            <p>La base legal per al tractament de les teves dades és:</p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s3Title')}</h2>
+                            <p>{t('privacitat.s3p')}</p>
                             <ul className="list-disc pl-6 space-y-2">
-                                <li>El consentiment de l'interessat</li>
-                                <li>L'execució d'un contracte en què l'interessat és part</li>
-                                <li>El compliment d'obligacions legals aplicables al responsable</li>
-                                <li>L'interès legítim del responsable</li>
+                                <li>{t('privacitat.s3li1')}</li>
+                                <li>{t('privacitat.s3li2')}</li>
+                                <li>{t('privacitat.s3li3')}</li>
+                                <li>{t('privacitat.s3li4')}</li>
                             </ul>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">4. Conservació de dades</h2>
-                            <p>
-                                Les dades personals seran conservades mentre es mantingui la relació comercial o durant
-                                els anys necessaris per complir amb les obligacions legals. Finalitzat aquest període,
-                                les dades seran eliminades o anonimitzades.
-                            </p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s4Title')}</h2>
+                            <p>{t('privacitat.s4p')}</p>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">5. Destinataris</h2>
-                            <p>
-                                Les teves dades no seran cedides a tercers, excepte obligació legal. En cas necessari
-                                per a la prestació de serveis, es podran comunicar dades a proveïdors de serveis que
-                                actuïn com a encarregats del tractament, amb els quals s'han subscrit els corresponents
-                                contractes de confidencialitat i tractament de dades.
-                            </p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s5Title')}</h2>
+                            <p>{t('privacitat.s5p')}</p>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">6. Drets dels usuaris</h2>
-                            <p>Pots exercir els següents drets:</p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s6Title')}</h2>
+                            <p>{t('privacitat.s6p')}</p>
                             <ul className="list-disc pl-6 space-y-2">
-                                <li><strong>Dret d'accés:</strong> Saber quines dades tenim sobre tu</li>
-                                <li><strong>Dret de rectificació:</strong> Corregir dades inexactes</li>
-                                <li><strong>Dret de supressió:</strong> Sol·licitar l'eliminació de les teves dades</li>
-                                <li><strong>Dret a la limitació:</strong> Limitar el tractament de les teves dades</li>
-                                <li><strong>Dret a la portabilitat:</strong> Rebre les teves dades en format estructurat</li>
-                                <li><strong>Dret d'oposició:</strong> Oposar-te al tractament de les teves dades</li>
+                                <li>{t('privacitat.s6liAcces')}</li>
+                                <li>{t('privacitat.s6liRect')}</li>
+                                <li>{t('privacitat.s6liSupr')}</li>
+                                <li>{t('privacitat.s6liLimit')}</li>
+                                <li>{t('privacitat.s6liPort')}</li>
+                                <li>{t('privacitat.s6liOp')}</li>
                             </ul>
-                            <p className="mt-4">
-                                Per exercir aquests drets, pots contactar-nos a: caffeiseo@yahoo.it
-                            </p>
-                            <p>
-                                També tens dret a presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (www.aepd.es).
-                            </p>
+                            <p className="mt-4">{t('privacitat.s6contact')}</p>
+                            <p>{t('privacitat.s6aepd')}</p>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">7. Seguretat</h2>
-                            <p>
-                                Hem adoptat les mesures tècniques i organitzatives necessàries per garantir la seguretat
-                                i integritat de les dades personals que tractem, així com per evitar la seva pèrdua,
-                                alteració i/o accés per part de tercers no autoritzats.
-                            </p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s7Title')}</h2>
+                            <p>{t('privacitat.s7p')}</p>
                         </section>
 
                         <section>
-                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">8. Actualitzacions</h2>
-                            <p>
-                                Ens reservem el dret a modificar la present Política de Privacitat per adaptar-la a
-                                novetats legislatives, jurisprudencials o pràctiques del sector. En aquests supòsits,
-                                es publicarà la nova versió en aquesta pàgina.
-                            </p>
+                            <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">{t('privacitat.s8Title')}</h2>
+                            <p>{t('privacitat.s8p')}</p>
                         </section>
 
                     </div>
 
                     <div className="mt-12 pt-8 border-t border-gray-200">
-                        <p className="text-sm text-gray-500">
-                            Última actualització: Setembre de 2025
-                        </p>
+                        <p className="text-sm text-gray-500">{t('legal.lastUpdate')}</p>
                     </div>
                 </div>
             </div>
