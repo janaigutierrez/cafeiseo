@@ -8,12 +8,12 @@ export const gelats = [
     { id: 1, subcategoria: 'Terrines i Cons', nom: 'Terrina Petita', descripcio: 'Dos gustos', preu: '2,90€' },
     { id: 2, subcategoria: 'Terrines i Cons', nom: 'Cono Petit', descripcio: 'Un gust', preu: '2,90€' },
     { id: 3, subcategoria: 'Terrines i Cons', nom: 'Terrina / Cono Mitjà', descripcio: 'Dos gustos', preu: '3,50€' },
-    { id: 4, subcategoria: 'Terrines i Cons', nom: 'Terrina Gran', descripcio: 'Tres gustos', preu: '4,30€' },
-    { id: 5, subcategoria: 'Terrines i Cons', nom: 'Cono Gran', descripcio: 'Dos gustos', preu: '4,30€' },
+    { id: 4, subcategoria: 'Terrines i Cons', nom: 'Terrina Gran', descripcio: 'Tres gustos', preu: '4,50€' },
+    { id: 5, subcategoria: 'Terrines i Cons', nom: 'Cono Gran', descripcio: 'Dos gustos', preu: '4,50€' },
     { id: 6, subcategoria: 'Terrines i Cons', nom: 'Cono / Terrina Buida', descripcio: '', preu: '0,30€' },
     // Batuts
     { id: 7, subcategoria: 'Batuts', nom: 'Batut Mitjà', descripcio: '', preu: '5,00€' },
-    { id: 8, subcategoria: 'Batuts', nom: 'Batut Gran', descripcio: '', preu: '6,00€' },
+    { id: 8, subcategoria: 'Batuts', nom: 'Batut Gran', descripcio: '', preu: '6,50€' },
     { id: 9, subcategoria: 'Batuts', nom: '+ Nata', descripcio: '', preu: '+0,50€', extra: true },
     { id: 10, subcategoria: 'Batuts', nom: '+ Bola de gelat', descripcio: '', preu: '+1,50€', extra: true },
     // Granissats

@@ -56,8 +56,8 @@ export const gelatsList = [
 // ENVASOS PER EMPORTAR
 // ─────────────────────────────────────────────────────────────
 export const envasos = [
-    { id: 'S', mida: 'S', litres: '0,5 L', preu: null },
-    { id: 'M', mida: 'M', litres: '0,75 L', preu: null },
-    { id: 'L', mida: 'L', litres: '1 L', preu: null },
-    { id: 'XL', mida: 'XL', litres: '1,2 L', preu: '17€' },
+    { id: 'S', mida: 'S', litres: '0,5 L', preu: '8€' },
+    { id: 'M', mida: 'M', litres: '0,75 L', preu: '11€' },
+    { id: 'L', mida: 'L', litres: '1 L', preu: '15€' },
+    { id: 'XL', mida: 'XL', litres: '1,2 L', preu: '20€' },
 ]
